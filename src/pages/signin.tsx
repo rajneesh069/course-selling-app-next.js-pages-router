@@ -53,3 +53,12 @@ export default function Signin() {
         </Card>
     </div >
 }
+
+export function getServerSideProps() {
+    console.log("Hit")
+    return {
+        props : {
+            
+        }
+    }; 
+}

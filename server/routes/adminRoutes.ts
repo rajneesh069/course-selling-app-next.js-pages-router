@@ -122,6 +122,7 @@ router.post("/courses", verifyJwtAdmin, async (req, res) => {
 });
 
 router.get("/courses/:courseId", verifyJwtAdmin, async (req, res) => {
+
    const course = await Course.findOne({ _id: req.params.courseId });
    if (course) {
       res.status(200).json({ course });

@@ -5,6 +5,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useSetRecoilState } from "recoil";
 import { userState } from "../store/atoms/userState";
+
 export default function Signup() {
     const router = useRouter();
     const setUser = useSetRecoilState(userState);

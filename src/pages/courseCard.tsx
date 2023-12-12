@@ -38,7 +38,7 @@ export default function CourseCard() {
 
 function CourseImage() {
     const image = useRecoilValue(courseImageState);
-    return image && <img src={image} style={{ borderRadius: "5%", marginLeft: "10px", marginRight: "10px", width: "100%" }} />
+    return image && <img alt="" src={image} style={{ borderRadius: "5%", marginLeft: "10px", marginRight: "10px", width: "100%" }} />
 }
 
 function Title() {
@@ -60,7 +60,7 @@ function Published() {
     const isPublished = useRecoilValue(coursePublishedState);
     if (isPublished) { return <Typography sx={{ marginLeft: "10%", marginTop: "1%" }} variant="subtitle1">Course is published</Typography> }
     else {
-        return <Typography sx={{ marginLeft: "10%", marginTop: "1%" }} variant="subtitle1">Course is not published</Typography>
+        return <Typography sx={{ marginLeft: "10%", marginTop: "1%" }} variant="subtitle1">Course is not published.</Typography>
     }
 }
 
@@ -86,7 +86,7 @@ function UpdateCard() {
         <Card sx={{ background: "#eee", }}>
             <CardContent sx={{ width: "85%" }}>
                 <Typography variant="h5" sx={{ marginBottom: "1%" }}>Update Course</Typography>
-                <img src={image} style={{ borderRadius: "5%", marginLeft: "10px", marginRight: "10px", width: "100%" }} />
+                {image && <img alt="" src={image} style={{ borderRadius: "5%", marginLeft: "10px", marginRight: "10px", width: "100%" }} />}
                 <TextField minRows={2} autoComplete="off" fullWidth variant="outlined" onChange={(event) => {
                     const { value } = event.target;
                     setTitle(value);

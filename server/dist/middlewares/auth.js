@@ -49,7 +49,7 @@ function verifyJwtAdmin(req, res, next) {
                 if (err) {
                     if (err.name == "TokenExpiredError") {
                         res.sendStatus(401).json({
-                            message: "Token has expired, please sign up again",
+                            message: "Token has expired, please sign in again",
                         });
                         return;
                     }
@@ -58,7 +58,6 @@ function verifyJwtAdmin(req, res, next) {
                 }
                 else {
                     if (typeof decoded !== "string" && decoded !== undefined) {
-                        console.log("Passed the authentication");
                         req.headers["username"] = decoded.username;
                         next();
                     }
@@ -94,12 +93,17 @@ function verifyJwtUser(req, res, next) {
         if (secret !== undefined) {
             jwt.verify(token, secret, (err, decoded) => {
                 if (err) {
+                    if (err.name == "TokenExpiredError") {
+                        res.sendStatus(401).json({
+                            message: "Token has expired, please sign in again",
+                        });
+                        return;
+                    }
                     res.sendStatus(401);
                     return;
                 }
                 else {
                     if (typeof decoded !== "string" && decoded !== undefined) {
-                        console.log("Passed the authentication");
                         req.headers["username"] = decoded.username;
                         next();
                     }

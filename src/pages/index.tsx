@@ -4,9 +4,9 @@ import { useRouter } from "next/router";
 import { useRecoilValue } from "recoil";
 import { usernameState } from "../store/selectors/username";
 
+
 export default function Landing() {
     const username = useRecoilValue(usernameState);
-    console.log("username inside landing:", username);
     const router = useRouter();
     return <div style={{ margin: 0, padding: 0 }}>
         <Grid container spacing={5} height={"99.2vh"} justifyContent={"center"} alignItems={"center"}>
@@ -22,7 +22,7 @@ export default function Landing() {
                 }} variant="contained">Sign Up</Button>}
             </Grid>
             <Grid item marginTop={"3%"}>
-                <img src="https://images.unsplash.com/photo-1605711285791-0219e80e43a3?auto=format&fit=crop&q=80&w=2069&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" height={300}></img>
+                <img alt="" src="https://images.unsplash.com/photo-1605711285791-0219e80e43a3?auto=format&fit=crop&q=80&w=2069&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" height={300} />
             </Grid>
         </Grid>
     </div>
